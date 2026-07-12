@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>نادي الأمل للإبتكار والمعرفة</title>
-    <!-- Favicon SVG (inline) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -921,10 +920,11 @@
 
         #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 9998; }
 
+        /* ===== MENU BUTTON — RIGHT SIDE ===== */
         .menu-btn {
             position: fixed;
             top: 16px;
-            left: 16px;
+            right: 16px;
             z-index: 5000;
             background: linear-gradient(135deg, #1a6b4a, #23905f);
             border: none;
@@ -941,8 +941,13 @@
             align-items: center;
             gap: 8px;
         }
-        .menu-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 36px rgba(26, 107, 74, 0.6); }
-        .menu-btn .icon { font-size: 22px; }
+        .menu-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 12px 36px rgba(26, 107, 74, 0.6);
+        }
+        .menu-btn .icon {
+            font-size: 22px;
+        }
 
         @media (max-width: 768px) {
             .studio-container { padding: 16px; }
@@ -990,6 +995,7 @@
             .drawer-body::-webkit-scrollbar { width: 6px; }
             .question-box .logo-area .brand-icon { font-size: 0.8rem; padding: 2px 8px; }
             .question-box .logo-area .brand-icon svg { width: 22px; height: 22px; }
+            .menu-btn { padding: 8px 14px; font-size: 14px; top: 12px; right: 12px; }
         }
         @supports (scrollbar-width: thin) {
             .drawer-body { scrollbar-width: thin; scrollbar-color: var(--gold) rgba(255, 255, 255, 0.04); }
@@ -998,20 +1004,19 @@
 </head>
 <body>
 
-    <!-- MENU BUTTON -->
+    <!-- MENU BUTTON (يمين) -->
     <button class="menu-btn" id="menuBtn"><span class="icon">☰</span> القائمة</button>
 
     <!-- DRAWER BACKDROP -->
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
     <!-- ============================================================
-    SIDEBAR (DRAWER) — مع اسم البرنامج الجديد
+    SIDEBAR (DRAWER)
     ============================================================ -->
     <aside class="drawer" id="drawer" aria-hidden="true">
         <div class="drawer-head">
             <div class="brand">
                 <div class="logo-icon">
-                    <!-- SVG Icon: Book + Star + Trophy -->
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z"
                               fill="url(#brandGrad)" stroke="url(#brandGrad)" stroke-width="2" stroke-linejoin="round"/>
@@ -1261,7 +1266,6 @@
         <div class="question-box">
             <div class="round-name" id="roundNameDisplay">🔔 جولة الجرس</div>
             <div class="logo-area" id="logoArea">
-                <!-- Brand Icon with name -->
                 <div class="brand-icon">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z" fill="url(#brandGrad2)" stroke="url(#brandGrad2)" stroke-width="2" stroke-linejoin="round"/>
@@ -1337,11 +1341,11 @@
             </div>
         </div>
 
-        <!-- Buzzer Area -->
+        <!-- Buzzer Area — الخيارات قابلة للنقر مباشرة -->
         <div class="buzzer-area" id="buzzerArea">
             <div class="buzzer-panel">
-                <div class="buzzer-status" id="buzzerStatus">🔔 اضغط للسبق</div>
-                <div class="buzzer-team" id="buzzerTeam">⏳ في انتظار الضغط</div>
+                <div class="buzzer-status" id="buzzerStatus">🔔 اضغط على الخيار للإجابة</div>
+                <div class="buzzer-team" id="buzzerTeam">⏳ اختر الإجابة</div>
                 <div class="buzzer-buttons" id="buzzerButtons"></div>
                 <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
                     <button class="btn btn-success" id="buzzerCorrect">✅ صح (+10)</button>
@@ -1349,7 +1353,7 @@
                     <button class="btn" id="buzzerReset">🔄 إعادة</button>
                 </div>
                 <div style="margin-top:8px;font-size:0.75rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,0.05);padding-top:8px;">
-                    ⚡ اضغط على الزر الفعلي (1 أو 2) للسبق — أول ضاغط يحدد من يجاوب
+                    ⚡ اضغط على الخيار مباشرة أو استخدم الزر الفعلي (1 أو 2) للسبق
                 </div>
             </div>
         </div>
@@ -1377,7 +1381,7 @@
             </div>
         </div>
 
-        <!-- Sudden Death (hidden, kept for compatibility) -->
+        <!-- Sudden Death (hidden) -->
         <div class="answers-container" id="suddenContainer" style="display:none;"></div>
 
         <div class="controls">
@@ -1404,7 +1408,7 @@
                 <span>نادي الأمل للإبتكار والمعرفة</span>
             </div>
             <div class="logo-text">🏆 منصة المسابقات</div>
-            <div class="logo-tv">PRO v7.2</div>
+            <div class="logo-tv">PRO v7.3</div>
         </div>
     </div>
 
@@ -1508,17 +1512,17 @@
     </div>
 
     <!-- ============================================================
-    JAVASCRIPT — جميع الوظائف محفوظة، تم تغيير اسم البرنامج فقط
+    JAVASCRIPT — تم إضافة التقييم المباشر للخيارات في جولة الجرس
     ============================================================ -->
     <script>
         // ========================================================================
-        //  PLATFORM v7.2 — تم تغيير اسم البرنامج إلى "نادي الأمل للإبتكار والمعرفة"
-        //  جميع الوظائف والمميزات محفوظة.
+        //  PLATFORM v7.3 — Buzzer: direct click on options for evaluation
+        //  Menu button moved to right side
+        //  All functionality preserved.
         // ========================================================================
 
         // ─── 100 QUESTIONS ──────────────────────────────────────────────────────
         const DEFAULT_QUESTIONS = {
-            // ===== BUZZER ROUND (50 questions with 4 options each) =====
             buzzer: [
                 { id: 'b1', q: 'في أي عام وُلد النبي محمد ﷺ؟', o: ['570م','571م','572م','573م'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 'b2', q: 'في أي شهر وُلد النبي ﷺ؟', o: ['ربيع الأول','رمضان','شوال','محرم'], a:0, cat:'سيرة', diff:'easy' },
@@ -1571,63 +1575,59 @@
                 { id: 'b49', q: 'إلى أي قبيلة ينتمي النبي ﷺ؟', o: ['قريش','كنانة','هوازن','ثقيف'], a:0, cat:'نسب', diff:'easy' },
                 { id: 'b50', q: 'من هو الجد الأكبر للنبي ﷺ؟', o: ['قصي','كلاب','مرة','كعب'], a:0, cat:'نسب', diff:'hard' }
             ],
-
-            // ===== AUCTION ROUND (25 questions — "كم تستطيع ذكر ... خلال 30 ثانية") =====
             auction: [
                 { id: 'a1', q: 'كم تستطيع ذكر أسماء الله الحسنى خلال 30 ثانية؟', answers: ['الرحمن','الرحيم','الملك','القدوس','السلام','المؤمن','المهيمن','العزيز','الجبار','المتكبر'], correctCount:10, hint:'أسماء الله' },
                 { id: 'a2', q: 'كم تستطيع ذكر أسماء الأنبياء الذين ذكروا في القرآن خلال 30 ثانية؟', answers: ['آدم','إدريس','نوح','هود','صالح','إبراهيم','لوط','إسماعيل','إسحاق','يعقوب','يوسف','أيوب','شعيب','موسى','هارون','داود','سليمان','إلياس','اليسع','يونس','ذو الكفل','زكريا','يحيى','عيسى','محمد'], correctCount:25, hint:'الأنبياء في القرآن' },
                 { id: 'a3', q: 'كم تستطيع ذكر أسماء زوجات النبي ﷺ خلال 30 ثانية؟', answers: ['خديجة','سودة','عائشة','حفصة','زينب بنت خزيمة','أم سلمة','زينب بنت جحش','جويرية','أم حبيبة','صفية','ميمونة'], correctCount:11, hint:'زوجات النبي' },
                 { id: 'a4', q: 'كم تستطيع ذكر أسماء الصحابة العشرة المبشرين بالجنة خلال 30 ثانية؟', answers: ['أبو بكر','عمر','عثمان','علي','طلحة','الزبير','سعد بن أبي وقاص','سعيد بن زيد','عبد الرحمن بن عوف','أبو عبيدة بن الجراح'], correctCount:10, hint:'العشرة المبشرون' },
-                { id: 'a5', q: 'كم تستطيع ذكر أسماء السور المكية خلال 30 ثانية؟', answers: ['الفاتحة','العلق','المزمل','المدثر','الليل','الضحى','الشرح','التين','العاديات','الفيل','الهمزة','المسد','الإخلاص','الفلق','الناس'], correctCount:15, hint:'السور المكية' },
-                { id: 'a6', q: 'كم تستطيع ذكر أسماء السور المدنية خلال 30 ثانية؟', answers: ['البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','الحج','النور','الأحزاب','الفتح','الحجرات','الحديد','الممتحنة'], correctCount:15, hint:'السور المدنية' },
+                { id: 'a5', q: 'كم تستطيع ذكر أسماء السور المكية خلال 30 ثانية？', answers: ['الفاتحة','العلق','المزمل','المدثر','الليل','الضحى','الشرح','التين','العاديات','الفيل','الهمزة','المسد','الإخلاص','الفلق','الناس'], correctCount:15, hint:'السور المكية' },
+                { id: 'a6', q: 'كم تستطيع ذكر أسماء السور المدنية خلال 30 ثانية？', answers: ['البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','الحج','النور','الأحزاب','الفتح','الحجرات','الحديد','الممتحنة'], correctCount:15, hint:'السور المدنية' },
                 { id: 'a7', q: 'كم تستطيع ذكر أسماء غزوات النبي ﷺ خلال 30 ثانية؟', answers: ['بدر','أحد','الخندق','بني قريظة','المريسيع','الفتح','حنين','تبوك','بني المصطلق','خيبر','ودان','بني سليم','العشيرة','السويق'], correctCount:14, hint:'غزوات النبي' },
                 { id: 'a8', q: 'كم تستطيع ذكر أسماء بنات النبي ﷺ خلال 30 ثانية؟', answers: ['زينب','رقية','أم كلثوم','فاطمة'], correctCount:4, hint:'بنات النبي' },
-                { id: 'a9', q: 'كم تستطيع ذكر أسماء أعمام النبي ﷺ خلال 30 ثانية؟', answers: ['حمزة','العباس','أبو طالب','أبو لهب','الحارث','الزبير','عبد الكعبة','المقوم'], correctCount:8, hint:'أعمام النبي' },
-                { id: 'a10', q: 'كم تستطيع ذكر أسماء الخلفاء الراشدين خلال 30 ثانية؟', answers: ['أبو بكر','عمر','عثمان','علي'], correctCount:4, hint:'الخلفاء الراشدون' },
+                { id: 'a9', q: 'كم تستطيع ذكر أسماء أعمام النبي ﷺ خلال 30 ثانية？', answers: ['حمزة','العباس','أبو طالب','أبو لهب','الحارث','الزبير','عبد الكعبة','المقوم'], correctCount:8, hint:'أعمام النبي' },
+                { id: 'a10', q: 'كم تستطيع ذكر أسماء الخلفاء الراشدين خلال 30 ثانية？', answers: ['أبو بكر','عمر','عثمان','علي'], correctCount:4, hint:'الخلفاء الراشدون' },
                 { id: 'a11', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "الحمد لله" خلال 30 ثانية؟', answers: ['الفاتحة','الأنعام','الكهف','سبأ','فاطر'], correctCount:5, hint:'سور تبدأ بالحمد' },
-                { id: 'a12', q: 'كم تستطيع ذكر أسماء السور التي تسمى بأسماء الأنبياء خلال 30 ثانية؟', answers: ['يونس','هود','يوسف','إبراهيم','محمد','نوح','ص'], correctCount:7, hint:'سور بأسماء الأنبياء' },
-                { id: 'a13', q: 'كم تستطيع ذكر أسماء الصحابة الذين شهدوا بدراً خلال 30 ثانية؟', answers: ['أبو بكر','عمر','عثمان','علي','حمزة','مصعب','بلال','سعد','عبد الرحمن','الزبير'], correctCount:10, hint:'صحابة بدر' },
-                { id: 'a14', q: 'كم تستطيع ذكر أسماء الأخلاق الحسنة التي اتصف بها النبي ﷺ خلال 30 ثانية؟', answers: ['الصدق','الأمانة','الرحمة','الكرم','الحلم','التواضع','العفو','الشجاعة','العدل','الحياء'], correctCount:10, hint:'أخلاق النبي' },
-                { id: 'a15', q: 'كم تستطيع ذكر أسماء معجزات النبي ﷺ خلال 30 ثانية؟', answers: ['انشقاق القمر','نبع الماء من بين أصابعه','تكثير الطعام','حنين الجذع','تسليم الحجر','الإسراء والمعراج','تكلم الذئب'], correctCount:7, hint:'معجزات النبي' },
-                { id: 'a16', q: 'كم تستطيع ذكر أسماء كتب الحديث الستة خلال 30 ثانية؟', answers: ['البخاري','مسلم','الترمذي','أبو داود','النسائي','ابن ماجه'], correctCount:6, hint:'كتب الستة' },
+                { id: 'a12', q: 'كم تستطيع ذكر أسماء السور التي تسمى بأسماء الأنبياء خلال 30 ثانية？', answers: ['يونس','هود','يوسف','إبراهيم','محمد','نوح','ص'], correctCount:7, hint:'سور بأسماء الأنبياء' },
+                { id: 'a13', q: 'كم تستطيع ذكر أسماء الصحابة الذين شهدوا بدراً خلال 30 ثانية？', answers: ['أبو بكر','عمر','عثمان','علي','حمزة','مصعب','بلال','سعد','عبد الرحمن','الزبير'], correctCount:10, hint:'صحابة بدر' },
+                { id: 'a14', q: 'كم تستطيع ذكر أسماء الأخلاق الحسنة التي اتصف بها النبي ﷺ خلال 30 ثانية？', answers: ['الصدق','الأمانة','الرحمة','الكرم','الحلم','التواضع','العفو','الشجاعة','العدل','الحياء'], correctCount:10, hint:'أخلاق النبي' },
+                { id: 'a15', q: 'كم تستطيع ذكر أسماء معجزات النبي ﷺ خلال 30 ثانية？', answers: ['انشقاق القمر','نبع الماء من بين أصابعه','تكثير الطعام','حنين الجذع','تسليم الحجر','الإسراء والمعراج','تكلم الذئب'], correctCount:7, hint:'معجزات النبي' },
+                { id: 'a16', q: 'كم تستطيع ذكر أسماء كتب الحديث الستة خلال 30 ثانية？', answers: ['البخاري','مسلم','الترمذي','أبو داود','النسائي','ابن ماجه'], correctCount:6, hint:'كتب الستة' },
                 { id: 'a17', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "الم" خلال 30 ثانية؟', answers: ['البقرة','آل عمران','العنكبوت','الروم','لقمان','السجدة'], correctCount:6, hint:'سور تبدأ بـ "الم"' },
-                { id: 'a18', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "الر" خلال 30 ثانية؟', answers: ['يونس','هود','يوسف','إبراهيم','الحجر'], correctCount:5, hint:'سور تبدأ بـ "الر"' },
+                { id: 'a18', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "الر" خلال 30 ثانية？', answers: ['يونس','هود','يوسف','إبراهيم','الحجر'], correctCount:5, hint:'سور تبدأ بـ "الر"' },
                 { id: 'a19', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "حم" خلال 30 ثانية？', answers: ['غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف'], correctCount:7, hint:'سور تبدأ بـ "حم"' },
                 { id: 'a20', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "سبح" خلال 30 ثانية؟', answers: ['الإسراء','الأعلى','الحديد','الحشر','الجمعة','التغابن'], correctCount:6, hint:'سور تبدأ بـ "سبح"' },
                 { id: 'a21', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "قد" خلال 30 ثانية？', answers: ['المؤمنون','الفرقان','المجادلة'], correctCount:3, hint:'سور تبدأ بـ "قد"' },
                 { id: 'a22', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "يس" خلال 30 ثانية？', answers: ['يس','الصافات'], correctCount:2, hint:'سور تبدأ بـ "يس"' },
-                { id: 'a23', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "طه" خلال 30 ثانية؟', answers: ['طه','طسم'], correctCount:2, hint:'سور تبدأ بـ "طه"' },
-                { id: 'a24', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "ن" خلال 30 ثانية؟', answers: ['ن','القلم'], correctCount:2, hint:'سور تبدأ بـ "ن"' },
-                { id: 'a25', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "حم عسق" خلال 30 ثانية؟', answers: ['الشورى'], correctCount:1, hint:'سور تبدأ بـ "حم عسق"' }
+                { id: 'a23', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "طه" خلال 30 ثانية？', answers: ['طه','طسم'], correctCount:2, hint:'سور تبدأ بـ "طه"' },
+                { id: 'a24', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "ن" خلال 30 ثانية？', answers: ['ن','القلم'], correctCount:2, hint:'سور تبدأ بـ "ن"' },
+                { id: 'a25', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "حم عسق" خلال 30 ثانية？', answers: ['الشورى'], correctCount:1, hint:'سور تبدأ بـ "حم عسق"' }
             ],
-
-            // ===== SIXTY ROUND (25 questions — no options, only question and answer) =====
             sixty: [
                 { id: 's1', q: 'ما هو عاصمة الدولة الإسلامية الأولى؟', o: ['المدينة المنورة'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 's2', q: 'ما هو اسم الجبل الذي نزل فيه الوحي على النبي ﷺ؟', o: ['جبل حراء'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 's3', q: 'ما هو اسم الغار الذي اختبأ فيه النبي ﷺ مع أبي بكر؟', o: ['غار ثور'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 's4', q: 'كم عدد أبناء النبي ﷺ الذكور؟', o: ['3'], a:0, cat:'نسب', diff:'medium' },
-                { id: 's5', q: 'كم عدد بنات النبي ﷺ؟', o: ['4'], a:0, cat:'نسب', diff:'medium' },
+                { id: 's5', q: 'كم عدد بنات النبي ﷺ？', o: ['4'], a:0, cat:'نسب', diff:'medium' },
                 { id: 's6', q: 'ما هو اسم الجد الثاني للنبي ﷺ؟', o: ['عبد مناف'], a:0, cat:'نسب', diff:'hard' },
                 { id: 's7', q: 'ما هو اسم أم المؤمنين خديجة بنت خويلد؟', o: ['خديجة'], a:0, cat:'شمائل', diff:'easy' },
                 { id: 's8', q: 'من هو الصحابي الملقب بـ "أمين الأمة"؟', o: ['أبو عبيدة بن الجراح'], a:0, cat:'شمائل', diff:'hard' },
                 { id: 's9', q: 'ما هو اسم السيف الذي كان يحمله النبي ﷺ؟', o: ['ذو الفقار'], a:0, cat:'سيرة', diff:'hard' },
-                { id: 's10', q: 'ما هو اسم ناقة النبي ﷺ؟', o: ['القصواء'], a:0, cat:'سيرة', diff:'hard' },
-                { id: 's11', q: 'ما هو اسم البغل الذي كان يركبه النبي ﷺ؟', o: ['دلدل'], a:0, cat:'سيرة', diff:'hard' },
-                { id: 's12', q: 'ما هو اسم الحمار الذي كان يركبه النبي ﷺ؟', o: ['يعفور'], a:0, cat:'سيرة', diff:'hard' },
-                { id: 's13', q: 'ما هو اسم الغلام الذي كان يخدم النبي ﷺ؟', o: ['أنس بن مالك'], a:0, cat:'شمائل', diff:'easy' },
+                { id: 's10', q: 'ما هو اسم ناقة النبي ﷺ？', o: ['القصواء'], a:0, cat:'سيرة', diff:'hard' },
+                { id: 's11', q: 'ما هو اسم البغل الذي كان يركبه النبي ﷺ？', o: ['دلدل'], a:0, cat:'سيرة', diff:'hard' },
+                { id: 's12', q: 'ما هو اسم الحمار الذي كان يركبه النبي ﷺ？', o: ['يعفور'], a:0, cat:'سيرة', diff:'hard' },
+                { id: 's13', q: 'ما هو اسم الغلام الذي كان يخدم النبي ﷺ？', o: ['أنس بن مالك'], a:0, cat:'شمائل', diff:'easy' },
                 { id: 's14', q: 'ما هو اسم الصحابي الذي كان يكتب الوحي؟', o: ['زيد بن ثابت'], a:0, cat:'سيرة', diff:'medium' },
                 { id: 's15', q: 'ما هو اسم الصحابي الذي كان يحفظ القرآن؟', o: ['عبد الله بن مسعود'], a:0, cat:'شمائل', diff:'medium' },
-                { id: 's16', q: 'كم عدد السنوات التي مكثها النبي ﷺ في مكة بعد البعثة؟', o: ['13'], a:0, cat:'سيرة', diff:'medium' },
+                { id: 's16', q: 'كم عدد السنوات التي مكثها النبي ﷺ في مكة بعد البعثة？', o: ['13'], a:0, cat:'سيرة', diff:'medium' },
                 { id: 's17', q: 'كم عدد السنوات التي مكثها النبي ﷺ في المدينة؟', o: ['10'], a:0, cat:'سيرة', diff:'medium' },
                 { id: 's18', q: 'ما هو اسم عم النبي ﷺ الذي توفي كافراً؟', o: ['أبو لهب'], a:0, cat:'نسب', diff:'easy' },
                 { id: 's19', q: 'ما هو اسم عم النبي ﷺ الذي آمن به؟', o: ['حمزة'], a:0, cat:'نسب', diff:'easy' },
                 { id: 's20', q: 'ما هو اسم خال النبي ﷺ؟', o: ['أبو سلمة'], a:0, cat:'نسب', diff:'hard' },
                 { id: 's21', q: 'ما هو اسم زوجة النبي ﷺ التي كانت تلقب بـ "أم المساكين"؟', o: ['زينب بنت خزيمة'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's22', q: 'ما هو اسم زوجة النبي ﷺ التي كانت تلقب بـ "أم المؤمنين"؟', o: ['عائشة'], a:0, cat:'شمائل', diff:'easy' },
+                { id: 's22', q: 'ما هو اسم زوجة النبي ﷺ التي كانت تلقب بـ "أم المؤمنين"？', o: ['عائشة'], a:0, cat:'شمائل', diff:'easy' },
                 { id: 's23', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "ترجمان القرآن"？', o: ['عبد الله بن عباس'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's24', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "سيد القراء"؟', o: ['أبي بن كعب'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's25', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "راوي الإسلام"؟', o: ['أبو هريرة'], a:0, cat:'شمائل', diff:'hard' }
+                { id: 's24', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "سيد القراء"？', o: ['أبي بن كعب'], a:0, cat:'شمائل', diff:'hard' },
+                { id: 's25', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "راوي الإسلام"？', o: ['أبو هريرة'], a:0, cat:'شمائل', diff:'hard' }
             ]
         };
 
@@ -1741,7 +1741,7 @@
                 },
                 log: state.log
             };
-            localStorage.setItem('proQuiz_v7_2', JSON.stringify(data));
+            localStorage.setItem('proQuiz_v7_3', JSON.stringify(data));
             if (showToast) {
                 toast('✅ تم حفظ جميع الإعدادات بنجاح!', 'success');
                 const indicator = document.getElementById('savedIndicator');
@@ -1753,7 +1753,7 @@
         }
 
         function load() {
-            const s = localStorage.getItem('proQuiz_v7_2');
+            const s = localStorage.getItem('proQuiz_v7_3');
             if (!s) return;
             try {
                 const p = JSON.parse(s);
@@ -2023,7 +2023,7 @@
             const names = {
                 auction: '🏆 جولة المزاد (تعداد)',
                 sixty: '⚡ جولة الـ 60 ثانية (بدون خيارات)',
-                buzzer: '🔔 جولة الجرس (خيارات)'
+                buzzer: '🔔 جولة الجرس (خيارات) — اضغط على الخيار للإجابة'
             };
             document.getElementById('roundNameDisplay').textContent = names[state.round] || '🔔 جولة الجرس';
         }
@@ -2207,6 +2207,63 @@
         }
 
         // ─── RENDER QUESTION ──────────────────────────────────────────────────
+
+        // دالة تقييم الإجابة في جولة الجرس (النقر المباشر على الخيار)
+        function evaluateBuzzerAnswer(selectedIndex, isCorrect) {
+            if (state.buzzer.answered) return;
+            const teamId = state.activeTeamId;
+            const match = getCurrentMatch();
+            const activeIdx = getActiveTeamIndex();
+
+            if (!state.rehearsal) {
+                if (isCorrect) {
+                    // إجابة صحيحة
+                    if (activeIdx === 0) { match.score1 += 10; match.correct1++; }
+                    else { match.score2 += 10; match.correct2++; }
+                    sound('correct');
+                    confettiBurst();
+                    toast('✅ إجابة صحيحة! +10 نقطة', 'success');
+                    addLog(teamId, 'إجابة صحيحة (جرس - مباشر)', 'السؤال: ' + getCurrentQuestion()?.q, 10);
+                } else {
+                    // إجابة خاطئة
+                    if (activeIdx === 0) { match.score1 = Math.max(0, match.score1 - 5); match.wrong1++; }
+                    else { match.score2 = Math.max(0, match.score2 - 5); match.wrong2++; }
+                    sound('wrong');
+                    toast('❌ إجابة خاطئة! -5 نقطة', 'error');
+                    addLog(teamId, 'إجابة خاطئة (جرس - مباشر)', 'السؤال: ' + getCurrentQuestion()?.q, -5);
+                }
+            } else {
+                toast(isCorrect ? '(بروفة) إجابة صحيحة' : '(بروفة) إجابة خاطئة', 'info');
+            }
+
+            state.buzzer.answered = true;
+            // إظهار الإجابة الصحيحة
+            const q = getCurrentQuestion();
+            if (q && q.o) {
+                document.getElementById('statusMsg').textContent =
+                    `💡 الإجابة الصحيحة: ${q.o[q.a] || 'غير معروفة'}`;
+            }
+            // تمييز الخيارات
+            document.querySelectorAll('#answersContainer .answer-slot').forEach((el, idx) => {
+                if (idx === selectedIndex) {
+                    if (isCorrect) el.classList.add('correct');
+                    else el.classList.add('wrong');
+                }
+                if (el.dataset.correct === 'true') {
+                    el.classList.add('reveal');
+                    if (!el.querySelector('.icon')) {
+                        const ic = document.createElement('span');
+                        ic.className = 'icon';
+                        ic.textContent = '✔️';
+                        el.appendChild(ic);
+                    }
+                }
+            });
+            renderAll();
+            save();
+            if (state.autoNext) setTimeout(() => { nextQ(); }, 1500);
+        }
+
         function renderQuestion() {
             document.getElementById('answersContainer').style.display = 'none';
             document.getElementById('auctionArea').classList.remove('active');
@@ -2230,8 +2287,8 @@
                 state.buzzer.locked = false;
                 state.buzzer.pressedBy = null;
                 state.buzzer.answered = false;
-                document.getElementById('buzzerStatus').textContent = '🔔 اضغط للسبق';
-                document.getElementById('buzzerTeam').textContent = '⏳ في انتظار الضغط';
+                document.getElementById('buzzerStatus').textContent = '🔔 اضغط على الخيار للإجابة';
+                document.getElementById('buzzerTeam').textContent = '⏳ اختر الإجابة';
                 document.querySelectorAll('#buzzerButtons .btn').forEach(btn => { btn.disabled = false; btn.style.opacity = '1'; });
                 initBuzzer(q);
                 return;
@@ -2278,7 +2335,7 @@
         // ─── REVEAL ──────────────────────────────────────────────────────────
         function revealManual() {
             if (state.round==='auction') { toast('⚠️ استخدم المزاد للكشف','info'); return; }
-            if (state.round==='buzzer') { toast('⚠️ استخدم زر التقييم','info'); return; }
+            if (state.round==='buzzer') { toast('⚠️ استخدم زر التقييم أو اضغط على الخيار','info'); return; }
             if (state.round==='sixty') { toast('⚠️ استخدم زر الصح/الخطأ','info'); return; }
             if (state.revealed) return;
             state.revealed = true;
@@ -2563,7 +2620,7 @@
         // ─── BUZZER ──────────────────────────────────────────────────────────
         function initBuzzer(q) {
             document.getElementById('questionText').textContent = q.q;
-            // Show options for buzzer round
+            // عرض الخيارات وجعلها قابلة للنقر مباشرة
             const opts = q.o || [];
             const col1 = document.getElementById('col1');
             const col2 = document.getElementById('col2');
@@ -2576,23 +2633,34 @@
                 div.textContent = txt;
                 div.dataset.index = idx;
                 div.dataset.correct = (idx === q.a) ? 'true' : 'false';
-                div.style.cursor = 'default';
-                div.style.background = 'rgba(255,255,255,0.05)';
+                // إضافة مستمع النقر المباشر
+                div.addEventListener('click', function(e) {
+                    if (state.buzzer.answered) return;
+                    // التحقق من أن الفريق الحالي هو من يلعب (أو يمكن لأي فريق)
+                    // نستخدم activeTeamId لتحديد من سجل النقاط
+                    const isCorrect = this.dataset.correct === 'true';
+                    const selectedIdx = parseInt(this.dataset.index);
+                    evaluateBuzzerAnswer(selectedIdx, isCorrect);
+                    // تعطيل جميع الخيارات بعد الإجابة
+                    document.querySelectorAll('#answersContainer .answer-slot').forEach(el => {
+                        el.classList.add('disabled');
+                        el.style.cursor = 'default';
+                    });
+                });
+                div.style.cursor = 'pointer';
                 if (idx < half) col1.appendChild(div);
                 else col2.appendChild(div);
             });
             document.getElementById('answersContainer').style.display = 'grid';
-            state.buzzer.locked = false;
-            state.buzzer.pressedBy = null;
             state.buzzer.answered = false;
-            document.getElementById('buzzerStatus').textContent = '🔔 اضغط للسبق';
-            document.getElementById('buzzerTeam').textContent = '⏳ في انتظار الضغط';
-            document.querySelectorAll('#buzzerButtons .btn').forEach(btn => { btn.disabled = false; btn.style.opacity = '1'; });
-            toast('🔔 اضغط على زر فريقك للسبق!', 'info');
-            document.getElementById('statusMsg').textContent = `🔔 السؤال ${state.idx.buzzer+1}/${getRoundQuestions('buzzer').length} · اضغط للسبق`;
+            document.getElementById('buzzerStatus').textContent = '🔔 اختر الإجابة';
+            document.getElementById('buzzerTeam').textContent = `⏳ دور ${getActiveTeam()?.name || ''}`;
+            toast('🔔 اضغط على أحد الخيارات للإجابة', 'info');
+            document.getElementById('statusMsg').textContent = `🔔 السؤال ${state.idx.buzzer+1}/${getRoundQuestions('buzzer').length} · اختر الإجابة`;
         }
 
         function buzzerPress(teamId) {
+            // وظيفة الاحتفاظ بالجرس للسبق (تستخدم مع الأزرار الفعلية)
             if (state.buzzer.locked || state.buzzer.answered) return;
             state.buzzer.pressedBy = teamId;
             state.buzzer.locked = true;
@@ -2607,6 +2675,11 @@
             document.getElementById('statusMsg').textContent = `🔔 ${getTeamName(teamId)} سبق! قم بالتقييم`;
             state.activeTeamId = teamId;
             renderScoreboard();
+            // تمكين الخيارات للنقر (إذا لم تكن مقفلة)
+            document.querySelectorAll('#answersContainer .answer-slot').forEach(el => {
+                el.classList.remove('disabled');
+                el.style.cursor = 'pointer';
+            });
         }
 
         function buzzerCorrect() {
@@ -2658,10 +2731,17 @@
             state.buzzer.locked = false;
             state.buzzer.pressedBy = null;
             state.buzzer.answered = false;
-            document.getElementById('buzzerStatus').textContent = '🔔 اضغط للسبق';
-            document.getElementById('buzzerTeam').textContent = '⏳ في انتظار الضغط';
+            document.getElementById('buzzerStatus').textContent = '🔔 اختر الإجابة';
+            document.getElementById('buzzerTeam').textContent = `⏳ دور ${getActiveTeam()?.name || ''}`;
             document.querySelectorAll('#buzzerButtons .btn').forEach(btn => { btn.disabled = false; btn.style.opacity = '1'; });
-            toast('🔄 تم إعادة تعيين الجرس', 'info');
+            // إعادة تمكين الخيارات
+            document.querySelectorAll('#answersContainer .answer-slot').forEach(el => {
+                el.classList.remove('disabled', 'correct', 'wrong', 'reveal');
+                el.style.cursor = 'pointer';
+                const icon = el.querySelector('.icon');
+                if (icon) icon.remove();
+            });
+            toast('🔄 تم إعادة تعيين الجرس والخيارات', 'info');
         }
 
         function endBuzzerRound() {
@@ -2680,7 +2760,6 @@
             document.getElementById('questionText').textContent = q.q;
             updateSixtyCircle(state.sixty.remain);
             document.getElementById('sixtyScoreDisplay').textContent = `⭐ ${state.sixty.score} نقطة`;
-            // Hide options for sixty round (display only question)
             document.getElementById('answersContainer').style.display = 'none';
             if(state.sixty.syncMode){
                 let txt='التزامن: ';
@@ -2695,7 +2774,6 @@
                     `⚡ 60 ثانية: ${state.sixty.score} نقطة | السؤال ${state.sixty.qidx+1}/${state.sixty.questions.length}`;
                 document.getElementById('sixtySyncScores').innerHTML = '';
             }
-            // Store correct answer for evaluation
             document.getElementById('sixtyCorrect').dataset.correctAnswer = q.o?.[0] || '';
         }
 
@@ -3064,7 +3142,7 @@
         };
         document.getElementById('celebClose').onclick = ()=>{
             document.getElementById('celebration').classList.remove('show');
-            if(confirm('بدء مسابقة جديدة؟')){ localStorage.removeItem('proQuiz_v7_2'); location.reload(); }
+            if(confirm('بدء مسابقة جديدة؟')){ localStorage.removeItem('proQuiz_v7_3'); location.reload(); }
         };
 
         // Undo
@@ -3569,7 +3647,7 @@
             });
             if(state.logo && state.logo.length > 50) updateLogo();
             setTimeout(updateScrollHint, 400);
-            toast('📚 نادي الأمل للإبتكار والمعرفة | 100 سؤال عن السيرة والشمائل والنسب. افتح القائمة ☰ للتحكم.','info');
+            toast('📚 نادي الأمل للإبتكار والمعرفة | اضغط على الخيارات مباشرة للإجابة في جولة الجرس.','info');
         }
 
         init();
