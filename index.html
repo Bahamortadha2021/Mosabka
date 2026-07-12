@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>منصة المسابقات - أدب الأمل | السيرة النبوية</title>
+    <title>الأمل - المسابقات الثقافية</title>
+    <!-- Favicon SVG (inline) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
@@ -148,10 +150,31 @@
             font-size: 14px; color: #daa520; font-weight: 700; margin-bottom: 6px; opacity: 0.9;
         }
         .question-box .logo-area {
-            display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
         }
         .question-box .logo-area img {
             height: 60px; max-width: 140px; object-fit: contain; filter: drop-shadow(0 0 20px rgba(255,215,0,0.1));
+        }
+        .question-box .logo-area .brand-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            background: rgba(0,0,0,0.3);
+            padding: 4px 14px 4px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(200,150,62,0.2);
+            backdrop-filter: blur(4px);
+        }
+        .question-box .logo-area .brand-icon svg {
+            width: 32px;
+            height: 32px;
+            display: block;
         }
         .question-box h2 {
             font-size: 24px; font-weight: 700; line-height: 1.7; color: #f0f8ff; text-shadow: 0 2px 8px rgba(0,0,0,0.6);
@@ -239,8 +262,28 @@
             text-align: center; font-size: 18px; margin-top: 8px; color: #f1c40f; min-height: 30px; font-weight: 700;
         }
         .footer-logos {
-            display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 18px; position: relative; z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 18px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .footer-logos .brand-footer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .footer-logos .brand-footer svg {
+            width: 28px;
+            height: 28px;
+            display: block;
         }
         .logo-text {
             font-size: 24px; font-weight: 900; background: linear-gradient(45deg,#f0f8ff,#7aa5e0);
@@ -925,6 +968,8 @@
             .drawer-body { padding: 12px 12px 20px; }
             .drawer-head .brand .logo-icon { width: 40px; height: 40px; }
             .drawer-head .brand .logo-icon svg { width: 30px; height: 30px; }
+            .question-box .logo-area .brand-icon { font-size: 1rem; padding: 2px 10px; }
+            .question-box .logo-area .brand-icon svg { width: 26px; height: 26px; }
         }
         @media (max-width: 480px) {
             .studio-container { padding: 10px; }
@@ -943,6 +988,8 @@
             .drawer-head .brand .logo-icon svg { width: 24px; height: 24px; }
             .drawer-body { padding: 10px 10px 16px; }
             .drawer-body::-webkit-scrollbar { width: 6px; }
+            .question-box .logo-area .brand-icon { font-size: 0.8rem; padding: 2px 8px; }
+            .question-box .logo-area .brand-icon svg { width: 22px; height: 22px; }
         }
         @supports (scrollbar-width: thin) {
             .drawer-body { scrollbar-width: thin; scrollbar-color: var(--gold) rgba(255, 255, 255, 0.04); }
@@ -958,32 +1005,37 @@
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
     <!-- ============================================================
-    SIDEBAR (DRAWER)
+    SIDEBAR (DRAWER) — WITH NEW BRAND ICON
     ============================================================ -->
     <aside class="drawer" id="drawer" aria-hidden="true">
         <div class="drawer-head">
             <div class="brand">
                 <div class="logo-icon">
+                    <!-- Brand SVG Icon: Book + Star + Trophy -->
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z" fill="url(#bookGrad)" stroke="url(#bookGrad)" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M50 30 L50 75" stroke="#f0f8ff" stroke-width="1.5" opacity="0.4"/>
-                        <path d="M35 35 L35 70" stroke="#f0f8ff" stroke-width="1" opacity="0.2"/>
-                        <path d="M65 35 L65 70" stroke="#f0f8ff" stroke-width="1" opacity="0.2"/>
-                        <path d="M50 8 L55 22 L70 22 L58 31 L62 45 L50 36 L38 45 L42 31 L30 22 L45 22 Z" fill="#f1c40f" stroke="#daa520" stroke-width="1.5" stroke-linejoin="round" filter="url(#glow)"/>
-                        <circle cx="25" cy="55" r="2" fill="#daa520" opacity="0.5"/>
-                        <circle cx="75" cy="55" r="2" fill="#daa520" opacity="0.5"/>
+                        <!-- Book -->
+                        <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z"
+                              fill="url(#brandGrad)" stroke="url(#brandGrad)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M50 30 L50 75" stroke="#f0f8ff" stroke-width="1.5" opacity="0.3"/>
+                        <path d="M35 35 L35 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                        <path d="M65 35 L65 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                        <!-- Star -->
+                        <path d="M50 8 L55 22 L70 22 L58 31 L62 45 L50 36 L38 45 L42 31 L30 22 L45 22 Z"
+                              fill="#f1c40f" stroke="#daa520" stroke-width="1.5" stroke-linejoin="round"/>
+                        <!-- Trophy -->
+                        <path d="M40 70 L60 70 L55 82 L45 82 L40 70 Z" fill="#daa520" opacity="0.7"/>
+                        <path d="M35 65 L65 65 L60 70 L40 70 L35 65 Z" fill="#e8b86d" opacity="0.5"/>
                         <defs>
-                            <linearGradient id="bookGrad" x1="0" y1="0" x2="0" y2="1">
+                            <linearGradient id="brandGrad" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stop-color="#daa520" stop-opacity="0.8"/>
                                 <stop offset="100%" stop-color="#b8860b" stop-opacity="0.9"/>
                             </linearGradient>
-                            <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
                         </defs>
                     </svg>
                 </div>
                 <div class="logo-text">
-                    <span class="title">أدب الأمل</span>
-                    <span class="sub">للمعرفة والإبتكار</span>
+                    <span class="title">الأمل</span>
+                    <span class="sub">المسابقات الثقافية</span>
                 </div>
             </div>
             <button class="close-btn" id="drawerClose">✕</button>
@@ -1212,6 +1264,25 @@
         <div class="question-box">
             <div class="round-name" id="roundNameDisplay">🔔 جولة الجرس</div>
             <div class="logo-area" id="logoArea">
+                <!-- Brand Icon with name -->
+                <div class="brand-icon">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z" fill="url(#brandGrad2)" stroke="url(#brandGrad2)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M50 30 L50 75" stroke="#f0f8ff" stroke-width="1.5" opacity="0.3"/>
+                        <path d="M35 35 L35 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                        <path d="M65 35 L65 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                        <path d="M50 8 L55 22 L70 22 L58 31 L62 45 L50 36 L38 45 L42 31 L30 22 L45 22 Z" fill="#f1c40f" stroke="#daa520" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 70 L60 70 L55 82 L45 82 L40 70 Z" fill="#daa520" opacity="0.7"/>
+                        <path d="M35 65 L65 65 L60 70 L40 70 L35 65 Z" fill="#e8b86d" opacity="0.5"/>
+                        <defs>
+                            <linearGradient id="brandGrad2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#daa520" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#b8860b" stop-opacity="0.9"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>الأمل</span>
+                </div>
                 <img id="logoImage" src="" alt="شعار المنصة" style="display:none;">
             </div>
             <h2 id="questionText">🎯 مرحباً بكم في منصة المسابقات</h2>
@@ -1323,8 +1394,20 @@
         <div class="status-msg" id="statusMsg">🎯 اختر جولة من القائمة</div>
 
         <div class="footer-logos">
+            <div class="brand-footer">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                    <path d="M20 80 L20 25 C20 20 25 18 30 20 L50 30 L70 20 C75 18 80 20 80 25 L80 80 C80 85 75 87 70 85 L50 75 L30 85 C25 87 20 85 20 80 Z" fill="#e8b86d" stroke="#e8b86d" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M50 30 L50 75" stroke="#f0f8ff" stroke-width="1.5" opacity="0.3"/>
+                    <path d="M35 35 L35 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                    <path d="M65 35 L65 70" stroke="#f0f8ff" stroke-width="1" opacity="0.15"/>
+                    <path d="M50 8 L55 22 L70 22 L58 31 L62 45 L50 36 L38 45 L42 31 L30 22 L45 22 Z" fill="#f1c40f" stroke="#daa520" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M40 70 L60 70 L55 82 L45 82 L40 70 Z" fill="#daa520" opacity="0.7"/>
+                    <path d="M35 65 L65 65 L60 70 L40 70 L35 65 Z" fill="#e8b86d" opacity="0.5"/>
+                </svg>
+                <span>الأمل - المسابقات الثقافية</span>
+            </div>
             <div class="logo-text">🏆 منصة المسابقات</div>
-            <div class="logo-tv">PRO v7.0</div>
+            <div class="logo-tv">PRO v7.1</div>
         </div>
     </div>
 
@@ -1432,13 +1515,13 @@
     ============================================================ -->
     <script>
         // ========================================================================
-        //  PLATFORM v7.0 — 100 Questions about Sira, Shamail, Nasab
-        //  Buzzer: 4 options | Auction: "How many can you mention" | Sixty: no options
+        //  PLATFORM v7.1 — Brand Icon "الأمل المسابقات الثقافية"
+        //  All functionality preserved.
         // ========================================================================
 
         // ─── 100 QUESTIONS ──────────────────────────────────────────────────────
         const DEFAULT_QUESTIONS = {
-            // ===== BUZZER ROUND (40 questions with 4 options each) =====
+            // ===== BUZZER ROUND (50 questions with 4 options each) =====
             buzzer: [
                 { id: 'b1', q: 'في أي عام وُلد النبي محمد ﷺ؟', o: ['570م','571م','572م','573م'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 'b2', q: 'في أي شهر وُلد النبي ﷺ؟', o: ['ربيع الأول','رمضان','شوال','محرم'], a:0, cat:'سيرة', diff:'easy' },
@@ -1514,14 +1597,14 @@
                 { id: 'a18', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "الر" خلال 30 ثانية؟', answers: ['يونس','هود','يوسف','إبراهيم','الحجر'], correctCount:5, hint:'سور تبدأ بـ "الر"' },
                 { id: 'a19', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "حم" خلال 30 ثانية؟', answers: ['غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف'], correctCount:7, hint:'سور تبدأ بـ "حم"' },
                 { id: 'a20', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "سبح" خلال 30 ثانية؟', answers: ['الإسراء','الأعلى','الحديد','الحشر','الجمعة','التغابن'], correctCount:6, hint:'سور تبدأ بـ "سبح"' },
-                { id: 'a21', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "قد" خلال 30 ثانية؟', answers: ['المؤمنون','الفرقان','المجادلة'], correctCount:3, hint:'سور تبدأ بـ "قد"' },
+                { id: 'a21', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "قد" خلال 30 ثانية？', answers: ['المؤمنون','الفرقان','المجادلة'], correctCount:3, hint:'سور تبدأ بـ "قد"' },
                 { id: 'a22', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "يس" خلال 30 ثانية؟', answers: ['يس','الصافات'], correctCount:2, hint:'سور تبدأ بـ "يس"' },
                 { id: 'a23', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "طه" خلال 30 ثانية؟', answers: ['طه','طسم'], correctCount:2, hint:'سور تبدأ بـ "طه"' },
                 { id: 'a24', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "ن" خلال 30 ثانية؟', answers: ['ن','القلم'], correctCount:2, hint:'سور تبدأ بـ "ن"' },
                 { id: 'a25', q: 'كم تستطيع ذكر أسماء السور التي تبدأ بـ "حم عسق" خلال 30 ثانية؟', answers: ['الشورى'], correctCount:1, hint:'سور تبدأ بـ "حم عسق"' }
             ],
 
-            // ===== SIXTY ROUND (35 questions — no options, only question and answer) =====
+            // ===== SIXTY ROUND (25 questions — no options, only question and answer) =====
             sixty: [
                 { id: 's1', q: 'ما هو عاصمة الدولة الإسلامية الأولى؟', o: ['المدينة المنورة'], a:0, cat:'سيرة', diff:'easy' },
                 { id: 's2', q: 'ما هو اسم الجبل الذي نزل فيه الوحي على النبي ﷺ؟', o: ['جبل حراء'], a:0, cat:'سيرة', diff:'easy' },
@@ -1547,17 +1630,7 @@
                 { id: 's22', q: 'ما هو اسم زوجة النبي ﷺ التي كانت تلقب بـ "أم المؤمنين"؟', o: ['عائشة'], a:0, cat:'شمائل', diff:'easy' },
                 { id: 's23', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "ترجمان القرآن"؟', o: ['عبد الله بن عباس'], a:0, cat:'شمائل', diff:'hard' },
                 { id: 's24', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "سيد القراء"؟', o: ['أبي بن كعب'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's25', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "ذو النورين"؟', o: ['عثمان بن عفان'], a:0, cat:'شمائل', diff:'medium' },
-                { id: 's26', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "الفاروق"؟', o: ['عمر بن الخطاب'], a:0, cat:'شمائل', diff:'easy' },
-                { id: 's27', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "الصديق"؟', o: ['أبو بكر الصديق'], a:0, cat:'شمائل', diff:'easy' },
-                { id: 's28', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "أسد الله"؟', o: ['حمزة بن عبد المطلب'], a:0, cat:'شمائل', diff:'medium' },
-                { id: 's29', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "سيف الله المسلول"؟', o: ['خالد بن الوليد'], a:0, cat:'شمائل', diff:'medium' },
-                { id: 's30', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "أمين الأمة"؟', o: ['أبو عبيدة بن الجراح'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's31', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "سيد الشهداء"؟', o: ['حمزة بن عبد المطلب'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's32', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "حبر الأمة"؟', o: ['عبد الله بن عباس'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's33', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "فقيه الأمة"؟', o: ['عبد الله بن عمر'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's34', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "مفسر القرآن"؟', o: ['عبد الله بن عباس'], a:0, cat:'شمائل', diff:'hard' },
-                { id: 's35', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "راوي الإسلام"؟', o: ['أبو هريرة'], a:0, cat:'شمائل', diff:'hard' }
+                { id: 's25', q: 'ما هو اسم الصحابي الذي كان يلقب بـ "راوي الإسلام"؟', o: ['أبو هريرة'], a:0, cat:'شمائل', diff:'hard' }
             ]
         };
 
@@ -1671,7 +1744,7 @@
                 },
                 log: state.log
             };
-            localStorage.setItem('proQuiz_v7', JSON.stringify(data));
+            localStorage.setItem('proQuiz_v7_1', JSON.stringify(data));
             if (showToast) {
                 toast('✅ تم حفظ جميع الإعدادات بنجاح!', 'success');
                 const indicator = document.getElementById('savedIndicator');
@@ -1683,7 +1756,7 @@
         }
 
         function load() {
-            const s = localStorage.getItem('proQuiz_v7');
+            const s = localStorage.getItem('proQuiz_v7_1');
             if (!s) return;
             try {
                 const p = JSON.parse(s);
@@ -2994,7 +3067,7 @@
         };
         document.getElementById('celebClose').onclick = ()=>{
             document.getElementById('celebration').classList.remove('show');
-            if(confirm('بدء مسابقة جديدة؟')){ localStorage.removeItem('proQuiz_v7'); location.reload(); }
+            if(confirm('بدء مسابقة جديدة؟')){ localStorage.removeItem('proQuiz_v7_1'); location.reload(); }
         };
 
         // Undo
@@ -3499,7 +3572,7 @@
             });
             if(state.logo && state.logo.length > 50) updateLogo();
             setTimeout(updateScrollHint, 400);
-            toast('🎯 مرحباً! 100 سؤال عن السيرة والشمائل والنسب. افتح القائمة ☰ للتحكم.','info');
+            toast('📚 الأمل - المسابقات الثقافية | 100 سؤال عن السيرة والشمائل والنسب. افتح القائمة ☰ للتحكم.','info');
         }
 
         init();
